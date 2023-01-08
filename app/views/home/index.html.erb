@@ -1,0 +1,15 @@
+<div class="d-flex fle-row justify-content-center home">
+  <%= image_tag 'home.jpg', class: "img-fluid img-home" %>
+  <div class="card pt-3 text-center home-card">
+    <div class="card-body">
+      <%= image_tag 'logo.png', class: "img-fluid img-home" %>
+      <%= simple_form_for @user do |f| %>
+        <%= f.input :username %>
+        <%= f.input :password %>
+        <%= f.button :submit %>
+      <% end %>
+      <input type="text" placeholder="email or username" /><br />
+      <input type="text" placeholder="password" />
+    </div>
+  </div>
+</div>
