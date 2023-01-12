@@ -74,3 +74,5 @@ gem 'simple_form'
 gem 'country_select'
 
 gem 'devise'
+
+gem "image_processing", ">= 1.2"
