@@ -5,3 +5,10 @@ pin "@hotwired/turbo-rails", to: "turbo.min.js", preload: true
 pin "@hotwired/stimulus", to: "stimulus.min.js", preload: true
 pin "@hotwired/stimulus-loading", to: "stimulus-loading.js", preload: true
 pin_all_from "app/javascript/controllers", under: "controllers"
+
+pin "bootstrap", to: "https://ga.jspm.io/npm:bootstrap@5.2.3/dist/js/bootstrap.esm.js"
+pin "@popperjs/core", to: "https://unpkg.com/@popperjs/core@2.8.6/dist/esm/index.js"
+pin "filepond", to: "https://ga.jspm.io/npm:filepond@4.30.4/dist/filepond.js"
+pin_all_from 'app/javascript/custom', under: "custom"
+pin "filepond-plugin-image-preview", to: "https://unpkg.com/filepond-plugin-image-preview@4.6.11/dist/filepond-plugin-image-preview.esm.js"
+pin "filepond-plugin-file-validate-type", to: "https://unpkg.com/filepond-plugin-file-validate-type@1.2.8/dist/filepond-plugin-file-validate-type.esm.js"

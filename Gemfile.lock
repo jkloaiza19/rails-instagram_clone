@@ -61,15 +61,23 @@ GEM
       activesupport (= 7.0.4)
       marcel (~> 1.0)
       mini_mime (>= 1.1.0)
+    activestorage-validator (0.3.0)
+      rails (>= 6.1.0)
     activesupport (7.0.4)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
+    autoprefixer-rails (10.4.13.0)
+      execjs (~> 2)
     bcrypt (3.1.18)
     bindex (0.8.1)
     bootsnap (1.15.0)
       msgpack (~> 1.2)
+    bootstrap (5.3.0.alpha3)
+      autoprefixer-rails (>= 9.1.0)
+      popper_js (>= 2.11.7, < 3)
+      sassc-rails (>= 2.0.0)
     builder (3.2.4)
     concurrent-ruby (1.1.10)
     countries (5.3.0)
@@ -91,12 +99,18 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.5.0)
     erubi (1.12.0)
+    execjs (2.8.1)
     factory_bot (6.2.1)
       activesupport (>= 5.0.0)
     factory_bot_rails (6.2.0)
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
     ffi (1.15.5)
+    font-awesome-sass (6.2.1)
+      sassc (~> 2.0)
+    font_awesome5_rails (1.5.0)
+      nokogiri (>= 1.11.3)
+      railties (>= 4.2)
     globalid (1.0.0)
       activesupport (>= 5.0)
     hotwire-livereload (1.2.3)
@@ -151,6 +165,7 @@ GEM
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.4.5)
+    popper_js (2.11.7)
     puma (5.6.5)
       nio4r (~> 2.0)
     racc (1.6.2)
@@ -257,14 +272,18 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activestorage-validator
   bootsnap
+  bootstrap (~> 5.3.0.alpha3)
   country_select
   cssbundling-rails (~> 1.1)
   debug
   devise
   factory_bot_rails
+  font-awesome-sass (~> 6.2.1)
+  font_awesome5_rails
   hotwire-livereload
-  image_processing (>= 1.2)
+  image_processing (~> 1.2)
   importmap-rails
   jbuilder
   jsbundling-rails (~> 1.1)

@@ -1,36 +1,67 @@
-<nav class="navbar navbar-expand-lg bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+<nav class="navbar navbar-expand-lg bg-white sticky-top border-bottom border-light justify-content-center">
+  <div class="container-fluid w-75">
+    <%= link_to root_path, class: 'navbar-brand' do %>
+      <%= image_tag 'logo.png', class: "logo" %>
+    <% end %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
-        </li>
-      </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+    <div class="d-flex">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <form class="d-flex me-5" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        </form>
+        <ul class="navbar-nav gap-4 me-auto mb-2 mb-lg-0 text-dark">
+          <li class="nav-item">
+              <%= link_to root_path, class: 'nav-link active"' do %>
+                <i class="fa-solid fa-house fa-xl"></i>
+              <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to root_path, class: 'nav-link active"' do %>
+              <i class="fa-brands fa-facebook-messenger fa-xl"></i>
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <button type="button" class="btn text-dark" data-bs-toggle="modal" data-bs-target="#newPostModal">
+             <%# <%= link_to new_post_path, class: 'nav-link active"' do %>
+              <i class="fa-regular fa-square-plus fa-xl"></i>
+            <%# <% end %>
+          </button>
+          </li>
+          <li class="nav-item">
+            <%= link_to root_path, class: 'nav-link active"' do %>
+              <i class="fa-regular fa-compass fa-xl"></i>
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to root_path, class: 'nav-link active"' do %>
+              <i class="fa-regular fa-heart fa-xl"></i>
+            <% end %>
+          </li>
+          
+          <li class="nav-item">
+            <div class="dropdown">
+              <button class="dropdown-toggle btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <% if current_user&.profile_picture&.attached? %>
+                  <%= image_tag post.user.profile_picture, class: 'img-thumbnail rounded-circle' %>
+                <% else %>
+                  <i class="fa-regular fa-circle-user fa-xl"></i>
+                <% end %>
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <%= button_to "Log out", destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+        </ul>
+      </div>
     </div>
   </div>
 </nav>
+
+<%# Required for modal %>
+<%= render 'posts/form_modal', post: Post.new %> 

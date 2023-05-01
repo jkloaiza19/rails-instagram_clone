@@ -1,18 +1,40 @@
+  <div class="d-flex align-items-center align-content-center edit-post">
+    <%= simple_form_for post, class: "edit-post-form" do |f| %>
+      <%= f.error_notification %>
+      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+        <div class="d-flex flex-sm-column flex-lg-row">
+          <div class="border-end border-secondary mx-2 pr-5" style="width: 60%">
+            <%= f.file_field :images, multiple: true, id: 'post-images', class: 'filepond', required: true %>
+          </div>
 
-<%= simple_form_for(@post) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+          <div style="width: 40%">
+            <div>
+              <% if current_user.profile_picture&.attached? %>
+                <%= image_tag post.user.profile_picture, class: 'img-thumbnail rounded-circle' %>
+              <% else %>
+                <i class="bi bi-person-circle" style="width: 25rem;"></i>
+              <% end %>
+              <span class="fw-bold"><%= current_user.username %></span>
+            </div>
 
-  <div class="form-inputs">
-    <%= f.input :caption %>
-    <%= f.input :longitude %>
-    <%= f.input :latitude %>
-    <%= f.association :user %>
-    <%= f.input :allow_comments %>
-    <%= f.input :show_likes_count %>
+            <div class="form-inputs mt-2">
+              <%= f.text_area :caption,
+                              rows: 8,
+                              placeholder: 'Write a caption...',
+                              class: 'form-control border-0',
+                              style: 'resize: none' %>
+              <%# <%= f.text_field :longitude %>
+              <%# <%= f.text_field :latitude %>
+              <%= f.text_field :longitude,
+                                placeholder: 'Add location',
+                                class: 'form-control border-0 border-top border-bottom rounded-0 text-dark' %>
+
+              <%= render 'posts/settings_collapsible', f: f %>
+            </div>
+          </div>
+        <div class="form-actions">
+          <%= f.button :submit, 'Share', class: 'btn btn-link text-decoration-none' %>
+        </div>
+      </div>
+    <% end %>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>

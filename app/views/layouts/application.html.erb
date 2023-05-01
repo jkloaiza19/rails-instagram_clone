@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= javascript_importmap_tags %>
+
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
@@ -12,9 +14,26 @@
   </head>
 
   <body>
-    <%# <%= render 'layouts/nav' %>
-    <%= render 'layouts/alerts' %>
+    <%= render 'layouts/nav' if current_user %>
     <%= yield %>
-    <%# <%= render 'layouts/footer' %>
+    <%# <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+    <script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
+    <script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script> %>
+    <%# <script>  
+      // Register the plugin
+      FilePond.registerPlugin(FilePondPluginImagePreview, FilePondPluginFileValidateType);
+      
+      // Get a reference to the file input element
+      const inputElement = document.querySelector('input[type="file"]');
+
+      // Create a FilePond instance
+      const pond = FilePond.create(inputElement, {
+        credits: {},
+        storeAsFile: true,
+        allowMultiple: true,
+        allowReorder: true,
+        acceptedFileTypes: ["image/*"],
+      });
+    </script> %>
   </body>
 </html>

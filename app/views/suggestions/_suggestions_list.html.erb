@@ -1,0 +1,13 @@
+<div class="d-flex flex-column justify-content-start align-bottom">
+<div class="d-flex flex-row justify-content-between">
+ <p class="text text-secondary">Suggestions for you</p>
+ <small>
+  <%= link_to "See all", root_path, class: "text-decoration-none text-dark" %>
+ </small>
+</div>
+<div>
+ <% (0..4).each do %>
+   <%= render 'suggestions/suggestion' %>
+ <% end %>
+</div>
+</div>

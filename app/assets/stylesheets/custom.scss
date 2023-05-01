@@ -1,5 +1,8 @@
 .home {
   padding-top: 25px;
+  align-items: stretch;
+  margin: 0 auto;
+  max-width: 700px;
 
   .home-card {
     width: 18rem;
@@ -118,4 +121,91 @@
     color: black
   }
 
+  .suggestions-container {
+    max-height: 350px;
+  }
+
+  @media (max-width: 767.98px) {
+    .suggestions-container {
+      display: none;
+    }
+  }
+}
+
+// General styles
+form {
+  width: 100%;
+}
+
+.logo {
+  width: 8rem;
+}
+
+.main-wrapper {
+  width: 25rem;
+}
+
+.no-border {
+  border: 0 none;
+}
+
+// Posts
+.edit-post {
+  max-width: 500px;
+  
+  form {
+    width: auto;
+  }
+}
+
+.post-image-container {
+  height: 25rem;
+}
+
+.post-image {
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.edit-post-form {
+  width: auto;
+}
+
+// Stories
+.story-list-container {
+  overflow-x: auto;
+}
+
+.story-image {
+  width: 3.5rem;
+}
+
+.story-user-name {
+  width: 4.5rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.suggestion-image {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+// FilePond
+.filepond--item {
+  width: calc(50% - 0.5em);
+}
+
+.filepond--root {
+  max-height: 20em;
+}
+
+// Margins and paddings
+.fs-7 {
+  font-size: 12px !important
+}
+
+.pr-5 {
+  padding-right: 5px;
 }

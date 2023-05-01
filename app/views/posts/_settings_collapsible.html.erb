@@ -1,0 +1,19 @@
+     <div class="border-0 border-bottom form-control my-2 d-flex justify-content-between align-items-center"
+        data-bs-toggle="collapse"
+        href="#settings"
+        role="button"
+        aria-expanded="false"
+        aria-controls="settings">
+      <a class="text-decoration-none text-secondary">Advance settings</a>
+      <i class="fa-solid fa-chevron-down"></i>
+    </div>
+    <div class="collapse" id="settings">
+      <div class="form-check form-switch">
+        <%= f.check_box :allow_comments, class: 'form-check-input', role: 'switch', checked: true %>
+        <%= f.label :allow_comments, class: 'form-check-label' %>
+      </div>
+      <div class="form-check form-switch">
+        <%= f.check_box :show_likes_count, class: 'form-check-input', role: 'switch', checked: true %>
+        <%= f.label :show_likes_count, class: 'form-check-label' %>
+      </div>
+    </div>

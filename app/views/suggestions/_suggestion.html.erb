@@ -1,0 +1,12 @@
+<div class="d-flex justify-content-between mb-2 align-items-center">
+  <div class="d-flex flex-row">
+    <%= image_tag 'user.png', class: "img-thumbnail rounded-circle border-2 border-secondary suggestion-image" %>
+    <div class="d-flex flex-column ms-2">
+      <span class="fs-6">username</span>
+      <span class="fs-7 text-secondary">Followed by</span>
+    </div>
+  </div>
+ <small>
+  <%= link_to "Follow", root_path, class: "text-decoration-none text-info fw-bold" %>
+ </small>
+</div>

@@ -1,5 +1,27 @@
-  <% if :notice %>
-    <p class="notice"><%= notice %></p>
-  <% elsif :alert %>
-    <p class="alert"><%= alert %></p>
+<% if notice && notice.is_a?(Array) %>
+  <% notice.each do |n| %>
+    <div class="alert alert-success alert-dismissible" role="alert">
+      <div><%= n %></div>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
   <% end %>
+<% elsif notice && notice.is_a?(String) %>
+    <div class="alert alert-success alert-dismissible" role="alert">
+      <div><%= notice %></div>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<% end %>
+
+<% if alert && alert.is_a?(Array) %>
+  <% alert.each do |a| %>
+    <div class="alert alert-danger alert-dismissible" role="alert">
+      <div><%= a %></div>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  <% end %>
+<% elsif alert && alert.is_a?(String) %>
+    <div class="alert alert-danger alert-dismissible" role="alert">
+      <div><%= notice %></div>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<% end %>

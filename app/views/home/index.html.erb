@@ -1,15 +1,12 @@
-<div class="d-flex fle-row justify-content-center home">
-  <%= image_tag 'home.jpg', class: "img-fluid img-home" %>
-  <div class="card pt-3 text-center home-card">
+<%= render 'layouts/alerts' %>
+<div class="d-flex flex-row justify-content-between home">
+  <div class="d-flex flex-column justify-content-center main-wrapper">
+    <%= render 'story/story_list' %>
+    <%= render 'posts/post_list', posts: current_user&.posts&.recent %>
+  </div>
+  <div class="card pt-3 home-card suggestions-container">
     <div class="card-body">
-      <%= image_tag 'logo.png', class: "img-fluid img-home" %>
-      <%= simple_form_for @user do |f| %>
-        <%= f.input :username %>
-        <%= f.input :password %>
-        <%= f.button :submit %>
-      <% end %>
-      <input type="text" placeholder="email or username" /><br />
-      <input type="text" placeholder="password" />
+      <%= render 'suggestions/suggestions_list' %>
     </div>
   </div>
 </div>

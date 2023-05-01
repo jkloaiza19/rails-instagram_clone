@@ -1,32 +1,25 @@
-<div id="<%= dom_id post %>">
-  <p>
-    <strong>Caption:</strong>
-    <%= post.caption %>
-  </p>
-
-  <p>
-    <strong>Longitude:</strong>
-    <%= post.longitude %>
-  </p>
-
-  <p>
-    <strong>Latitude:</strong>
-    <%= post.latitude %>
-  </p>
-
-  <p>
-    <strong>User:</strong>
-    <%= post.user_id %>
-  </p>
-
-  <p>
-    <strong>Allow comments:</strong>
-    <%= post.allow_comments %>
-  </p>
-
-  <p>
-    <strong>Show likes count:</strong>
-    <%= post.show_likes_count %>
-  </p>
-
+<div id="<%= dom_id post %>" class="d-flex flex-row justify-content-center home">
+  <div class="card main-wrapper border-0 border-bottom pb-2">
+    <%= render 'posts/post_header', post: post %>
+      <div class="card-body">
+        <h5 class="card-title">
+          <%= render 'posts/carousel', post: post %>
+        </h5>
+        <div class="d-flex flex-row justify-content-left my-2">
+          <div><i class="bi bi-heart"></i></div>
+          <div class="ms-2"><i class="bi bi-chat"></i></div>
+          <div class="ms-2"><i class="bi bi-send"></i></div>
+        </div>
+        <p class="card-text">
+          <span class="fw-bold"><%= post.user.username %></span>
+          <%= post.caption %>
+        </p>
+        <small class="text-muted text-uppercase"><%= post_time_ago(post) %></small>
+      </div>
+      <div class="card-footer bg-white d-flex flex-direction-row align-items-center border-0">
+        <i class="bi bi-emoji-smile"></i>
+        <input autocomplete="off" type="text" class="form-control no-border" placeholder="Add a comment..." aria-label="Comment" aria-describedby="basic-addon1">
+        <button class="btn btn-link text-decoration-none fw-bold" type="button" id="button-addon2">Post</button>
+    </div>
+  </div>
 </div>

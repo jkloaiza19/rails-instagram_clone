@@ -3,7 +3,7 @@
 # If the controller is a Devise controller, then run the configure_permitted_parameters method before
 # any other methods in the controller are run.
 class ApplicationController < ActionController::Base
-  before_action :configure_permitted_parameters if :devise_controller?
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected
 
