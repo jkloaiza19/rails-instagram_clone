@@ -149,6 +149,21 @@ form {
   border: 0 none;
 }
 
+.no-bg {
+  background: transparent;
+}
+
+.button-form-container {
+  form {
+    width: auto;
+
+    button {
+      @extend .no-border;
+      @extend .no-bg;
+    }
+  }
+}
+
 // Posts
 .edit-post {
   max-width: 500px;

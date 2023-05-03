@@ -1,0 +1,15 @@
+<%= turbo_frame_tag "post-#{post.id}-actions" do %>
+  <div class="d-flex flex-row justify-content-left my-2 button-form-container card-text">
+    <%= button_to toggle_like_url(post_id: post.id), id: "post-#{post.id}-btn", method: :post do %>
+      <i class="fa-heart fa-xl <%= user_liked_post?(post) ? 'fa-solid color-red' : 'fa-regular' %>"></i>
+    <% end %> 
+    <div class="ms-3"><i class="fa-regular fa-comment fa-xl"></i></div>
+    <div class="ms-3"><i class="fa-regular fa-paper-plane fa-xl"></i></div>
+  </div>
+  <p class="card-text mt-2 mb-2">
+    <a href="#" class="text-dark text-decoration-none" data-bs-toggle="modal" data-bs-target="#post-<%= post.id %>-likes-modal">
+      <span class="fw-bold fs-6 text"><%= post_likes_counter(post) %></span>
+    </a>  
+  </p>
+  <%= render 'posts/post_likes_modal', post: post %>
+<% end %> 

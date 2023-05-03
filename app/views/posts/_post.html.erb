@@ -5,21 +5,23 @@
         <h5 class="card-title">
           <%= render 'posts/carousel', post: post %>
         </h5>
-        <div class="d-flex flex-row justify-content-left my-2">
-          <div><i class="bi bi-heart"></i></div>
-          <div class="ms-2"><i class="bi bi-chat"></i></div>
-          <div class="ms-2"><i class="bi bi-send"></i></div>
-        </div>
+         <%= render 'posts/post_actions', post: post %>
         <p class="card-text">
-          <span class="fw-bold"><%= post.user.username %></span>
+          <span class="fw-bold fs-6 text"><%= post&.user&.username %></span>
           <%= post.caption %>
         </p>
         <small class="text-muted text-uppercase"><%= post_time_ago(post) %></small>
       </div>
       <div class="card-footer bg-white d-flex flex-direction-row align-items-center border-0">
-        <i class="bi bi-emoji-smile"></i>
+        <i class="fa-regular fa-face-smile"></i>
         <input autocomplete="off" type="text" class="form-control no-border" placeholder="Add a comment..." aria-label="Comment" aria-describedby="basic-addon1">
         <button class="btn btn-link text-decoration-none fw-bold" type="button" id="button-addon2">Post</button>
     </div>
   </div>
 </div>
+
+<script>
+  document.getElementById("postCarousel-<%= post.id %>").addEventListener('dblclick', () => {
+    document.getElementById("post-<%= post.id %>-btn").click()
+  })
+</script>
